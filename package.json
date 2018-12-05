@@ -47,7 +47,13 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,scss,css}": [
+    "src/**/*.{js,jsx,json}": [
+      "eslint --fix",
+      "prettier --config .prettierrc --write",
+      "git add"
+    ],
+    "src/**/*.{scss,css}": [
+      "stylelint --config=.stylelintrc --fix",
       "prettier --config .prettierrc --write",
       "git add"
     ]
@@ -55,8 +61,12 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "test:lint:js": "eslint --ext=js --ext=jsx .",
+    "test:lint:scss": "stylelint --config=.stylelintrc '**/*.scss'",
+    "test:lint": "run-s test:lint:**",
+    "test:unit": "react-scripts test --env=jsdom",
+    "test": "run-s test:**"
   },
   "browserslist": [
     ">0.2%",
@@ -80,17 +90,17 @@
     "testEnvironment": "jsdom",
     "testURL": "http://localhost",
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^.\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
+      "[/\\\\]node_modules[/\\\\].\\.(js|jsx|ts|tsx)$",
+      "^.\\.module\\.(css|sass|scss)$"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      "^.\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -122,6 +132,8 @@
     "eslint-plugin-react": "^7.11.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3"
+    "prettier": "^1.15.3",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
