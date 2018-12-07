@@ -24,6 +24,7 @@ const persistConfig = {
   key: 'root',
   storage,
   stateReconciler: autoMergeLevel2,
+  blacklist: ['router'],
 };
 
 export const history = createBrowserHistory();
@@ -59,5 +60,5 @@ export default function configureStore(preloadedState) {
 
   const persistor = persistStore(store);
 
-  return { store, persistor };
+  return { store, persistor, history };
 }
