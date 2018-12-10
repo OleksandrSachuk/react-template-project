@@ -24,7 +24,6 @@ const persistConfig = {
   key: 'root',
   storage,
   stateReconciler: autoMergeLevel2,
-  blacklist: ['router'],
 };
 
 export const history = createBrowserHistory();
@@ -34,6 +33,7 @@ const rootReducer = createRootReducer(history);
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export default function configureStore(preloadedState) {
+  console.log('test');
   const epicMiddleware = createEpicMiddleware();
 
   const middlewares = [routerMiddleware(history), thunk, epicMiddleware];

@@ -13,6 +13,7 @@ const { store, persistor, history } = configureStore();
 ReactDOM.render(
   <Provider store={ store }>
     <PersistGate loading={ null } persistor={ persistor }>
+      {console.log('test2')}
       <Pages history={ history } />
     </PersistGate>
   </Provider>,
