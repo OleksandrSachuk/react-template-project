@@ -7,7 +7,7 @@ export interface IProps {
     link?: string
 }
 
-const Component1: React.SFC<IProps> = ({ link }) => (
+const Component1: React.FunctionComponent<IProps> = ({ link }) => (
   <div>
         Component1
     <div>
