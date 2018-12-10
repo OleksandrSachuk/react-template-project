@@ -305,6 +305,7 @@ module.exports = {
                     },
                   },
                 ],
+                require.resolve('@babel/plugin-proposal-export-default-from'),
               ],
               cacheDirectory: true,
               // Save disk space when time isn't as important
