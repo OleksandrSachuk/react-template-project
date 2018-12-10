@@ -165,6 +165,7 @@
     "prettier": "^1.15.3",
     "stylelint": "^9.9.0",
     "stylelint-config-standard": "^18.2.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "why-did-you-update": "^1.0.6"
   }
 }

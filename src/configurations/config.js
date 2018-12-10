@@ -6,5 +6,8 @@ const config = {
 
   enable_logs: Boolean(process.env.REACT_APP_ENABLE_LOGS),
   enable_devtools: Boolean(process.env.REACT_APP_ENABLE_DEVTOOLS),
+  enable_update_analytics: Boolean(
+    process.env.REACT_APP_ENABLE_UPDATE_ANALYTICS,
+  ),
 };
 export default config;
