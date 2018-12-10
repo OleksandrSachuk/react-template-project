@@ -7,13 +7,16 @@ import './index.css';
 import Pages from './pages';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './configurations/store';
+import ErrorBoundary from './modules/common/ErrorBoundary';
 
 const { store, persistor, history } = configureStore();
 
 ReactDOM.render(
   <Provider store={ store }>
     <PersistGate loading={ null } persistor={ persistor }>
-      <Pages history={ history } />
+      <ErrorBoundary>
+        <Pages history={ history } />
+      </ErrorBoundary>
     </PersistGate>
   </Provider>,
   document.getElementById('root'),
