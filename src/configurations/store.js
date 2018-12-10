@@ -1,3 +1,4 @@
+import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
@@ -7,7 +8,7 @@ import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
-
+import { whyDidYouUpdate } from 'why-did-you-update';
 import createRootReducer from './reducers';
 
 import config from './config';
@@ -17,6 +18,7 @@ import templateEpic from '../modules/module1/epics';
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isEnableLogs = config.enable_logs;
 const isEnableDevtools = config.enable_devtools;
+const isEnableUpdateAnalytics = config.enable_update_analytics;
 
 const rootEpic = combineEpics(templateEpic);
 
@@ -47,6 +49,10 @@ export default function configureStore(preloadedState) {
 
   if (isDevelopment && isEnableDevtools) {
     composedEnhancers = composeWithDevTools(...enhancers);
+  }
+
+  if (isDevelopment && isEnableUpdateAnalytics) {
+    whyDidYouUpdate(React);
   }
 
   const store = createStore(

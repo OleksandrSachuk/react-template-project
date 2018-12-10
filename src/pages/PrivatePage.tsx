@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { Route, Redirect, RouteProps, RouteComponentProps } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
-interface PrivateRouteProps extends RouteProps {
-    component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>
+interface IProps {
+    component: any,
+    rest: Object
 }
 
 const isAuth = true;
 
-const PrivatePage: React.FunctionComponent<PrivateRouteProps> = ({ component: Component, ...rest }) => (
+const PrivatePage: React.FunctionComponent<IProps> = ({ component: Component, ...rest }) => (
   <Route
     { ...rest }
     render={ (props: Object) => isAuth
