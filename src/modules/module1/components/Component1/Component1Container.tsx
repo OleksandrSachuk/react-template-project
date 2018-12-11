@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
@@ -13,4 +14,5 @@ export default compose(
         mapStateToProps,
         mapDispatchToProps,
     ),
+    React.memo,
 )(Component1);
