@@ -10,7 +10,7 @@ export default createLogger({
 
   colors: {
     title: action => {
-      const type = action.type;
+      const { type } = action;
 
       if (type.endsWith(requestsStatuses.pending)) return '#bc9410';
       if (type.endsWith(requestsStatuses.failure)) return '#f20404';
@@ -21,6 +21,6 @@ export default createLogger({
     prevState: () => '#9e9e9e',
     action: () => '#ff6611',
     nextState: () => '#9e9e9e',
-    error: () => '#f20404',
-  },
+    error: () => '#f20404'
+  }
 });

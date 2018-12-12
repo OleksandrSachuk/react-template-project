@@ -10,9 +10,9 @@ const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch: Dispatch<any>) => bindActionCreators({}, dispatch);
 
 export default compose(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps,
-    ),
-    React.memo,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  React.memo
 )(Component1);

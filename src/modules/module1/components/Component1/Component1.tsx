@@ -4,12 +4,12 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 export interface IProps {
-    link?: string
+  link?: string;
 }
 
 const Component1: React.FunctionComponent<IProps> = ({ link }) => (
   <div>
-        Component1
+    Component1
     <div>
       <Link to="/">
         <span>{link}</span>
@@ -19,7 +19,7 @@ const Component1: React.FunctionComponent<IProps> = ({ link }) => (
 );
 
 Component1.defaultProps = {
-    link: 'Root',
+  link: 'Root'
 };
 
 export default Component1;

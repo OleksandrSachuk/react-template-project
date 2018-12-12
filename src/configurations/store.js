@@ -25,7 +25,7 @@ const rootEpic = combineEpics(templateEpic);
 const persistConfig = {
   key: 'root',
   storage,
-  stateReconciler: autoMergeLevel2,
+  stateReconciler: autoMergeLevel2
 };
 
 export const history = createBrowserHistory();
@@ -58,7 +58,7 @@ export default function configureStore(preloadedState) {
   const store = createStore(
     persistedReducer,
     preloadedState,
-    composedEnhancers,
+    composedEnhancers
   );
 
   epicMiddleware.run(rootEpic);
