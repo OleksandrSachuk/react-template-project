@@ -1,7 +1,9 @@
 import { ofType } from 'redux-observable';
 import { tap } from 'rxjs/operators';
 
-export const templateEpic = action$ => action$.pipe(
+export default action$ =>
+  action$.pipe(
     ofType('TEST'),
-    tap(() => console.log('epic')),
+    // eslint-disable-next-line
+    tap(() => console.log('epic'))
   );

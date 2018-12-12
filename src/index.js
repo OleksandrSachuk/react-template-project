@@ -7,19 +7,19 @@ import './index.css';
 import Pages from './pages';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './configurations/store';
-import ErrorBoundary from './modules/common/ErrorBoundary';
+import ErrorBoundary from './modules/common/ErrorBoundary/ErrorBoundary';
 
 const { store, persistor, history } = configureStore();
 
 ReactDOM.render(
-  <Provider store={ store }>
-    <PersistGate loading={ null } persistor={ persistor }>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <ErrorBoundary>
-        <Pages history={ history } />
+        <Pages history={history} />
       </ErrorBoundary>
     </PersistGate>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
