@@ -9,7 +9,7 @@ export default createLogger({
   duration: true,
 
   colors: {
-    title: action => {
+    title: (action) => {
       const { type } = action;
 
       if (type.endsWith(requestsStatuses.pending)) return '#bc9410';

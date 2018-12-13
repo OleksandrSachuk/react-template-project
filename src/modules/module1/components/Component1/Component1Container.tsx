@@ -7,7 +7,8 @@ import Component1 from './Component1';
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => bindActionCreators({}, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators({}, dispatch);
 
 export default compose(
   connect(

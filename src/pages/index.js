@@ -15,7 +15,7 @@ const Pages = ({ history }) => (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route exact path="/" component={props => <App {...props} />} />
+          <Route exact path="/" component={(props) => <App {...props} />} />
           <PrivatePage path="/component1" component={Component1} />
         </Switch>
       </Suspense>
