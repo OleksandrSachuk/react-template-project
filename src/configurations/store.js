@@ -2,13 +2,11 @@ import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
-import { whyDidYouUpdate } from 'why-did-you-update';
 import createRootReducer from './reducers';
 
 import config from './config';
@@ -48,10 +46,16 @@ export default function configureStore(preloadedState) {
   let composedEnhancers = compose;
 
   if (isDevelopment && isEnableDevtools) {
+    /* eslint-disable global-require */
+    const { composeWithDevTools } = require('redux-devtools-extension');
+    /* eslint-enable global-require */
     composedEnhancers = composeWithDevTools(...enhancers);
   }
 
   if (isDevelopment && isEnableUpdateAnalytics) {
+    /* eslint-disable global-require */
+    const { whyDidYouUpdate } = require('why-did-you-update');
+    /* eslint-enable global-require */
     whyDidYouUpdate(React);
   }
 
