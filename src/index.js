@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import ErrorBoundary from 'modules/common/ErrorBoundary/ErrorBoundary';
+
 import './index.css';
 import Pages from './pages';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './configurations/store';
-import ErrorBoundary from './modules/common/ErrorBoundary/ErrorBoundary';
 
 const { store, persistor, history } = configureStore();
 
