@@ -1,4 +1,5 @@
-import { createLogger } from 'redux-logger';
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+import {createLogger} from 'redux-logger';
 
 import requestsStatuses from '../shared/utils/requestsStatuses';
 
@@ -10,7 +11,7 @@ export default createLogger({
 
   colors: {
     title: (action) => {
-      const { type } = action;
+      const {type} = action;
 
       if (type.endsWith(requestsStatuses.pending)) return '#bc9410';
       if (type.endsWith(requestsStatuses.failure)) return '#f20404';

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 import ErrorBoundary from 'modules/common/ErrorBoundary/ErrorBoundary';
 
@@ -10,7 +10,7 @@ import Pages from './pages';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './configurations/store';
 
-const { store, persistor, history } = configureStore();
+const {store, persistor, history} = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

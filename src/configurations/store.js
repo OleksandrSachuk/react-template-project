@@ -1,12 +1,12 @@
 import React from 'react';
-import { applyMiddleware, compose, createStore } from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import { combineEpics, createEpicMiddleware } from 'redux-observable';
-import { persistStore, persistReducer } from 'redux-persist';
+import {combineEpics, createEpicMiddleware} from 'redux-observable';
+import {persistStore, persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-import { createBrowserHistory } from 'history';
-import { routerMiddleware } from 'connected-react-router';
+import {createBrowserHistory} from 'history';
+import {routerMiddleware} from 'connected-react-router';
 import createRootReducer from './reducers';
 
 import config from './config';
@@ -47,15 +47,17 @@ export default function configureStore(preloadedState) {
 
   if (isDevelopment && isEnableDevtools) {
     /* eslint-disable global-require */
-    const { composeWithDevTools } = require('redux-devtools-extension');
+    const {composeWithDevTools} = require('redux-devtools-extension');
     /* eslint-enable global-require */
     composedEnhancers = composeWithDevTools(...enhancers);
   }
 
   if (isDevelopment && isEnableUpdateAnalytics) {
     /* eslint-disable global-require */
-    const { whyDidYouUpdate } = require('why-did-you-update');
+    /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+    const {whyDidYouUpdate} = require('why-did-you-update');
     /* eslint-enable global-require */
+    /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
     whyDidYouUpdate(React);
   }
 
@@ -69,5 +71,5 @@ export default function configureStore(preloadedState) {
 
   const persistor = persistStore(store);
 
-  return { store, persistor, history };
+  return {store, persistor, history};
 }
